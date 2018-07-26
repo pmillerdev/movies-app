@@ -8,7 +8,7 @@ class FavouritesList extends Component {
     return(
       <div>
         <Link to="/">Back to Search</Link>
-        <h1>My Favourite Movies</h1>
+        <h4>My Favourite Movies</h4>
         {this.props.favourites.map(fav => (
           <Movie key={fav.id} movie={fav} showFavButton />
         ))}
