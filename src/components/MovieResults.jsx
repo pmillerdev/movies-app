@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import Search from "./Search";
 
 class MovieResults extends Component {
   render() {
     return(
-      <h1>Movie results will go here</h1>
+      <div>
+        <h1>Movie results will go here</h1>
+        <Search />
+      </div>
     )
   }
 };
