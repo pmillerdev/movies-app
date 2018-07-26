@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
 import { Form, FormControl, FormGroup, Button } from "react-bootstrap";
-
+import { connect } from "react-redux";
 import { API_KEY } from "../secrets";
-
+import { movies } from "../actions";
+  
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -15,10 +16,9 @@ class Search extends Component {
 
   handleSearch = () => {
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&page=1&query=${this.state.query}`
-    console.log(url)
     fetch(url, {
       method: "GET"
-    }).then(response => response.json()).then(result => console.log(result));
+    }).then(response => response.json()).then(jsonObj => { this.props.movies(jsonObj.results)});
   };
 
   render() {
@@ -44,4 +44,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default connect(null, { movies })(Search);
