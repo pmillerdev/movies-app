@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import Search from "./Search";
+import Movie from "./Movie";
 import { connect } from "react-redux";
 
 class MovieResults extends Component {
   render() {
     return(
       <div>
-        <h1>Movie results will go here</h1>
         <Search />
+          {this.props.movies.map(item => 
+            (<Movie key={item.id} movie={item} />)
+          )}
       </div>
     )
   }
@@ -16,7 +19,7 @@ class MovieResults extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-
+    movies: state.movies
   }
 }
 
