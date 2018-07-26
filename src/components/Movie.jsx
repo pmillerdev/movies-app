@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { addToFavourites, removeFromFavourites } from "../actions";
+import { connect } from "react-redux";
 
 class Movie extends Component {
   constructor(props) {
@@ -10,17 +12,27 @@ class Movie extends Component {
     };
   }
 
-  handleFavouriteClick = () => this.setState({
-    favourited: !this.state.favourited
-  });
+  handleAddFavourite = () => {
+    this.setState({
+      favourited: !this.state.favourited
+    });
+    this.props.addToFavourites(this.props.movie);
+  };
+
+  handleRemoveFavourite = () => {
+    this.setState({
+      favourited: !this.state.favourited
+    });
+    this.props.removeFromFavourites(this.props.movie);
+  };
 
   displayFavouriteIcon = () => {
     return !this.state.favourited ? 
     (<span className="glyphicon glyphicon-heart-empty"
-      onClick={this.handleFavouriteClick}
+      onClick={this.handleAddFavourite}
     ></span>) :
     (<span className="glyphicon glyphicon-heart"
-      onClick={this.handleFavouriteClick}
+      onClick={this.handleRemoveFavourite}
     ></span>)
   };
 
@@ -35,7 +47,7 @@ class Movie extends Component {
           <p>{movie.overview}</p>
           <p>Release Date: {movie.release_date}</p>
           <p>Rating: <span className="badge badge-default"><span className="glyphicon glyphicon-star" aria-hidden="true"></span>{" "}{movie.vote_average}</span></p>
-          {this.displayFavouriteIcon()}
+          {!this.props.showFavButton && this.displayFavouriteIcon()}
         </div>
       </div>
     </div>
@@ -44,7 +56,8 @@ class Movie extends Component {
 }
 
 Movie.propTypes = {
-  movie: PropTypes.object
+  movie: PropTypes.object.isRequired,
+  showFavButton: PropTypes.bool
 }
 
-export default Movie;
+export default connect(null, { addToFavourites, removeFromFavourites })(Movie);
