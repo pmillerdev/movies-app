@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Search from "./Search";
 import Movie from "./Movie";
-import FavouritesList from "./FavouritesList";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class MovieResults extends Component {
   render() {
     return(
       <div>
-        <FavouritesList />
+        <Link to="/fav">My Favourites</Link>
         <hr />
         <Search />
           {this.props.movies.map(item => 
