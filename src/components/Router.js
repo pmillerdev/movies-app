@@ -11,7 +11,7 @@ const Router = () => (
   <div className="row">
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={SearchResults} />
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={SearchResults} />
         <Route path="/favourites" component={FavouritesList} />
       </Switch>
     </BrowserRouter>
