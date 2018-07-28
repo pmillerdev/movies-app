@@ -4,15 +4,15 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import MovieResults from "./MovieResults";
+import SearchResults from "./SearchResults";
 import FavouritesList from "./FavouritesList";
 
 const Router = () => (
   <div className="row">
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={MovieResults} />
-        <Route path="/fav" component={FavouritesList} />
+        <Route exact path="/" component={SearchResults} />
+        <Route path="/favourites" component={FavouritesList} />
       </Switch>
     </BrowserRouter>
   </div>

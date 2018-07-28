@@ -1,19 +1,23 @@
 import React, { Component } from "react";
-import Search from "./Search";
+import SearchBox from "./SearchBox";
 import Movie from "./Movie";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class MovieResults extends Component {
+class SearchResults extends Component {
   render() {
     return(
       <div>
-        <Link to="/fav">My Favourites</Link>
+        <Link to="/favourites">My Favourites</Link>
         <hr />
-        <Search />
+        <SearchBox />
+        <br />
+        <br />
+        <div>
           {this.props.movies.map(item => 
             (<Movie key={item.id} movie={item} />)
           )}
+          </div>
       </div>
     )
   }
@@ -26,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(MovieResults);
+export default connect(mapStateToProps, null)(SearchResults);

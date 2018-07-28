@@ -9,9 +9,9 @@ class FavouritesList extends Component {
       <div>
         <Link to="/">Back to Search</Link>
         <h4>My Favourite Movies</h4>
-        {this.props.favourites.map(fav => (
-          <Movie key={fav.id} movie={fav} showFavButton />
-        ))}
+          {this.props.favourites.map(fav => (
+            <Movie key={fav.id} movie={fav} showFavButton />
+          ))}
       </div>
     )
   }

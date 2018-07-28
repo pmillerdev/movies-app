@@ -36,6 +36,10 @@ class Movie extends Component {
     ></span>)
   };
 
+  formatDate = moviedate => {
+     return moviedate.split("-").reverse().join("/");
+  };
+
   render() {
     const movie = this.props.movie;
     return(
@@ -44,8 +48,8 @@ class Movie extends Component {
         <a href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener norefferer"><img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="None" /></a>
         <div className="caption">
           <h3>{movie.title}</h3>
-          <p>{movie.overview}</p>
-          <p>Release Date: {movie.release_date}</p>
+          <p id="overview" >{movie.overview}</p>
+          <p>Release Date: {this.formatDate(movie.release_date)}</p>
           <p>Rating: <span className="badge badge-default"><span className="glyphicon glyphicon-star" aria-hidden="true"></span>{" "}{movie.vote_average}</span></p>
           {!this.props.showFavButton && this.displayFavouriteIcon()}
         </div>

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { API_KEY } from "../secrets";
 import { movies } from "../actions";
   
-class Search extends Component {
+class SearchBox extends Component {
   constructor(props) {
     super(props);
 
@@ -23,25 +23,23 @@ class Search extends Component {
 
   render() {
     return(
-      <div>
-        <Form inline className="col-md-6 col-md-offset-4">
-          <FormGroup
-            controlId="formBasicText"
-          >
-            <FormControl
-              type="text"
-              placeholder="Wonder Woman"
-              onChange={(event) => this.setState({
-                query: event.target.value
-              })}
-            />
-            {" "}
-            <Button bsStyle="success" onClick={this.handleSearch}>Search</Button>
-          </FormGroup>
-        </Form>
-      </div>
+      <Form inline className="col-md-6 col-md-offset-4">
+        <FormGroup
+          controlId="formBasicText"
+        >
+          <FormControl
+            type="text"
+            placeholder="Wonder Woman"
+            onChange={(event) => this.setState({
+              query: event.target.value
+            })}
+          />
+          {" "}
+          <Button bsStyle="success" onClick={this.handleSearch}>Search</Button>
+        </FormGroup>
+      </Form>
     )
   }
 }
 
-export default connect(null, { movies })(Search);
+export default connect(null, { movies })(SearchBox);
