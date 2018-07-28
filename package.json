@@ -1,7 +1,7 @@
 {
   "name": "movies-app",
   "version": "0.1.0",
-  "homepage": "http://pmillerdev.github.io/movies-app",
+  "homepage": "https://pmillerdev.github.io/movies-app",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.2.0",
