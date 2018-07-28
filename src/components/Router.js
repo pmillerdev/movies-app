@@ -12,7 +12,7 @@ const Router = () => (
     <BrowserRouter>
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={SearchResults} />
-        <Route path="/favourites" component={FavouritesList} />
+        <Route path={process.env.PUBLIC_URL + '/favourites'} component={FavouritesList} />
       </Switch>
     </BrowserRouter>
   </div>
