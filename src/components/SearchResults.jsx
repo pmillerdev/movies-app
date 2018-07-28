@@ -8,7 +8,7 @@ class SearchResults extends Component {
   render() {
     return(
       <div>
-        <Link to="/favourites">My Favourites</Link>
+        <Link to={process.env.PUBLIC_URL + '/favourites'} >My Favourites</Link>
         <hr />
         <SearchBox />
         <br />
