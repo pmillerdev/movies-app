@@ -7,7 +7,9 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Jumbotron />
-        <Router />
+        <div className="container" >
+          <Router />      
+        </div>
       </div>
     );
   }

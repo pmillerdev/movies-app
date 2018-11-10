@@ -19,3 +19,16 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.jumbotron {
+  color: #fff;
+  background-image: linear-gradient(to bottom right, black, #337ab7);
+}
+
+.form-inline {
+  margin-bottom: 2em;
+}
+
+.form-group {
+  transform: scale(1.5);
+}

@@ -21,6 +21,12 @@ class SearchBox extends Component {
     }).then(response => response.json()).then(jsonObj => { this.props.movies(jsonObj.results)});
   };
 
+  handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.handleSearch();
+    }
+  };
+
   render() {
     return(
       <Form inline className="col-md-6 col-md-offset-4">
@@ -29,13 +35,14 @@ class SearchBox extends Component {
         >
           <FormControl
             type="text"
-            placeholder="Wonder Woman"
+            placeholder="Name of movie"
             onChange={(event) => this.setState({
               query: event.target.value
             })}
+            onKeyPress={this.handleKeyPress} 
           />
           {" "}
-          <Button bsStyle="success" onClick={this.handleSearch}>Search</Button>
+          <Button bsStyle="primary" onClick={this.handleSearch}>Search</Button>
         </FormGroup>
       </Form>
     )

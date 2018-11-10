@@ -8,16 +8,16 @@ class SearchResults extends Component {
   render() {
     return(
       <div>
-        <Link to={process.env.PUBLIC_URL + '/favourites'} >My Favourites</Link>
+        <Link to={process.env.PUBLIC_URL + '/favourites'}>My Favourites</Link>
         <hr />
         <SearchBox />
-        <br />
-        <br />
-        <div>
-          {this.props.movies.map(item => 
-            (<Movie key={item.id} movie={item} />)
-          )}
+        {this.props.movies.length > 0 ? (
+          <div>
+            {this.props.movies.map(item => 
+              (<Movie key={item.id} movie={item} />)
+            )}
           </div>
+        ) : (<div>Your search returned no movies, please try again.</div>)}          
       </div>
     )
   }
