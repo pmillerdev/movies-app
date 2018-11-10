@@ -31,10 +31,12 @@ class Movie extends Component {
     (<span className="glyphicon glyphicon-heart-empty"
       onClick={this.handleAddFavourite}
       style={{ color: "gold", cursor: "pointer"}}
+      title="Add to favourites"
     ></span>) :
     (<span className="glyphicon glyphicon-heart"
       onClick={this.handleRemoveFavourite}
       style={{ color: "gold", cursor: "pointer"}}
+      title="Remove from favourites"
     ></span>)
   };
 
@@ -50,9 +52,9 @@ class Movie extends Component {
           <a href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener norefferer"><img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="None" /></a>
           <div className="caption">
             <h3>{movie.title} {!this.props.showFavButton && this.displayFavouriteIcon()}</h3>
-            <p id="overview" >{movie.overview}</p>
-            <p>Release Date: {this.formatDate(movie.release_date)}</p>
-            <p>Rating: <span className="badge badge-default"><span className="glyphicon glyphicon-star" aria-hidden="true"></span>{" "}{movie.vote_average}</span></p>
+            <p><strong>{this.formatDate(movie.release_date)}</strong></p>
+            <p id="overview" >{movie.overview}</p>            
+            <p>User Score: <span className="badge badge-default"><span className="glyphicon glyphicon-star" aria-hidden="true"></span>{" "}{movie.vote_average}</span></p>
           </div>
         </div>
       </div>
