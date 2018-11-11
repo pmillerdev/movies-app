@@ -5,12 +5,6 @@ import { Link } from "react-router-dom";
 
 class FavouritesList extends Component {
 
-  // If no public url then link the user to the root
-  handleLocation = (loc) => {
-    return (!loc ? ("/") : ("/movies-app/"))
-  }
-
-
   render() {
     return(
       <div>

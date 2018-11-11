@@ -8,8 +8,7 @@ class SearchResults extends Component {
   render() {
     return(
       <div>
-        <Link to={process.env.PUBLIC_URL + '/favourites'}>My Favourites</Link>
-        <hr />
+        <Link to={process.env.PUBLIC_URL + '/favourites'} className="favourites-button btn btn-primary">View My Favourites</Link>
         <SearchBox />
         {this.props.movies.length > 0 ? (
           <div>
