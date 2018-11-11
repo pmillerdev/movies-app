@@ -4,10 +4,17 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class FavouritesList extends Component {
+
+  // If no public url then link the user to the root
+  handleLocation = (loc) => {
+    return (!loc ? ("/") : ("/movies-app/"))
+  }
+
+
   render() {
     return(
       <div>
-        <Link to={process.env.PUBLIC_URL + "/movies-app"}>Back to Search</Link>
+        <Link to={process.env.PUBLIC_URL ? "/movies-app" : "/"}>Back to Search</Link>
         <h4>My Favourite Movies</h4>
           {this.props.favourites.map(fav => (
             <Movie key={fav.id} movie={fav} showFavButton />
