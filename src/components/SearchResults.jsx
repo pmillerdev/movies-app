@@ -2,28 +2,28 @@ import React, { Component } from "react";
 import SearchBox from "./SearchBox";
 import Movie from "./Movie";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import Button from "./Button";
 
 class SearchResults extends Component {
   render() {
     return(
       <div>
-        <Link to={process.env.PUBLIC_URL + '/favourites'} className="favourites-button btn btn-primary">View My Favourites</Link>
-        <SearchBox />
-        {this.props.movies.length > 0 ? (
-          <div>
-            {this.props.movies.map(item => 
-              (<Movie key={item.id} movie={item} />)
-            )}
-          </div>
-        ) : (<div>Your search returned no movies, please try again.</div>)}          
+        <div>
+          <div className="col-xs-12 col-sm-4">
+            <Button url={process.env.PUBLIC_URL + '/favourites'} type="info" >View my Favourites</Button>
+          </div>        
+          <SearchBox />
+        </div>
+        <hr />
+        {this.props.movies.map(item => 
+          (<Movie key={item.id} movie={item} />)
+        )}
       </div>
     )
   }
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     movies: state.movies
   }

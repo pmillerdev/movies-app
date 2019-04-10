@@ -47,7 +47,7 @@ class Movie extends Component {
   render() {
     const movie = this.props.movie;
     return(
-      <div className="col-sm-6 col-md-4">
+      <div className="col-xs-12 col-sm-6 col-md-4">
         <div className="thumbnail">
           <a href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener norefferer"><img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt="None" /></a>
           <div className="caption">

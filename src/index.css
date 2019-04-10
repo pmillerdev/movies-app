@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .thumbnail {
@@ -25,17 +25,40 @@ body {
   background-image: linear-gradient(to bottom right, black, #337ab7);
 }
 
-.form-inline {
-  margin-bottom: 2em;
-}
-
 .form-group {
   transform: scale(1.5);
 }
 
-.favourites-button {
-  position: fixed;
-  left: 15px;
-  bottom: 100px;
-  z-index: 99;
+h4 {
+  display: inline-block;
+  margin: 0 1em;
+  padding: 0;
+  line-height: 1.5rem;
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 767px) {
+  .btn-info {
+    margin-bottom: 1em;
+    position: relative;
+    z-index: 10;
+  }
+  .form-group {
+    transform: scale(1);
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .form-control {
+    display: inline-block;
+    width: auto;
+  }
+  .btn-primary {
+    vertical-align: top;
+  }
+  h4 {
+    margin: 0;
+  }
+  .thumbnail {
+    height: auto;
+  }
 }

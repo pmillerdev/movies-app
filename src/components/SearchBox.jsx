@@ -14,22 +14,17 @@ class SearchBox extends Component {
     };
   }
 
-  handleSearch = () => {
+  handleSearch = (e) => {
+    e.preventDefault()
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&page=1&query=${this.state.query}`
     fetch(url, {
       method: "GET"
     }).then(response => response.json()).then(jsonObj => { this.props.movies(jsonObj.results)});
   };
 
-  handleKeyPress = event => {
-    if (event.key === 'Enter') {
-      this.handleSearch();
-    }
-  };
-
   render() {
     return(
-      <Form inline className="col-md-6 col-md-offset-4">
+      <Form inline>
         <FormGroup
           controlId="formBasicText"
         >
@@ -39,10 +34,9 @@ class SearchBox extends Component {
             onChange={(event) => this.setState({
               query: event.target.value
             })}
-            onKeyPress={this.handleKeyPress} 
           />
           {" "}
-          <Button bsStyle="primary" onClick={this.handleSearch}>Search</Button>
+          <Button bsStyle="primary" type="submit" onClick={this.handleSearch}>Search</Button>
         </FormGroup>
       </Form>
     )

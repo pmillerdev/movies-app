@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import Movie from "./Movie";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
+import Button from "./Button";
 
 class FavouritesList extends Component {
 
   render() {
     return(
       <div>
-        <Link to={process.env.PUBLIC_URL ? "/movies-app" : "/"}>Back to Search</Link>
-        <h4>My Favourite Movies</h4>
+        <div className="col-xs-12">
+          <Button url={process.env.PUBLIC_URL ? "/movies-app" : "/"} type="info">Back to Search</Button>
+          <h4>My Favourite Movies <span className="glyphicon glyphicon-heart" style={{ color: "gold", top: "3px"}}></span></h4>
+          <hr />
+        </div>            
           {this.props.favourites.map(fav => (
             <Movie key={fav.id} movie={fav} showFavButton />
-          ))}
+          ))}        
       </div>
     )
   }
