@@ -1,21 +1,16 @@
-import React from 'react';
-import { 
-  BrowserRouter,
-  Switch,
-  Route
-} from "react-router-dom";
-import SearchResults from "./SearchResults";
-import FavouritesList from "./FavouritesList";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SearchResults from "../pages/SearchResults";
+import FavouritesList from "../pages/FavouritesList";
 
 const Router = () => (
-  <div className="row">
-    <BrowserRouter>
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={SearchResults} />
-        <Route exact path={process.env.PUBLIC_URL + '/favourites'} component={FavouritesList} />
-      </Switch>
-    </BrowserRouter>
-  </div>
+  <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<SearchResults />} />
+      <Route exact path="/movies-app" element={<SearchResults />} />
+      <Route exact path="/favourites" element={<FavouritesList />} />
+    </Routes>
+  </BrowserRouter>
 );
 
 export default Router;

@@ -8,7 +8,7 @@ class Movie extends Component {
     super(props);
 
     this.state = {
-      favourited: false,
+      favourited: this.props.isFavourite ? true : false,
     };
   }
 
@@ -65,8 +65,7 @@ class Movie extends Component {
           </a>
           <div className="caption">
             <h3>
-              {movie.title}{" "}
-              {!this.props.showFavButton && this.displayFavouriteIcon()}
+              {movie.title} {this.displayFavouriteIcon()}
             </h3>
             <p>
               <strong>{this.formatDate(movie.release_date)}</strong>
@@ -91,7 +90,7 @@ class Movie extends Component {
 
 Movie.propTypes = {
   movie: PropTypes.object.isRequired,
-  showFavButton: PropTypes.bool,
+  isFavourite: PropTypes.bool,
 };
 
 export default connect(null, { addToFavourites, removeFromFavourites })(Movie);

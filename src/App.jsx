@@ -1,14 +1,15 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import Jumbotron from "./components/Jumbotron";
 import Router from "./components/Router";
 
 const App = () => (
-  <div className="container-fluid">
+  <Container fluid>
     <Jumbotron />
-    <div className="container">
+    <Container>
       <Router />
-    </div>
-  </div>
+    </Container>
+  </Container>
 );
 
 export default App;
