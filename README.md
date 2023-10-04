@@ -1,5 +1,10 @@
 # Movies App
 
-Allows the user to search for movies and displays data retrieved from an API.
+Allows the user to retrieve movies from an API using a search input. Also allows the user to select their favourite movies.
 
-Technologies Used: React, React-Bootstrap, Redux/React-Redux, React-Router.
+Technologies Used: React, React-Bootstrap, Redux, React-Router, CSS, Fetch.
+
+## Running Locally
+
+1. `yarn`
+2. `yarn start`
